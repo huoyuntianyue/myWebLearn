@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../lib/Vue.js"></script>
+    <style>
+        .thin {
+            font-size: 10px;
+            color: red;
+        }
+
+        .border {
+            border: solid 1px green;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <!--    第一种类-->
+    <div class="thin">这是第一种</div>
+    <!--    这是第二种 2.1-->
+    <div :class="['thin', 'border']">这是第二种----2.1</div>
+    <!--    这是第二种 2.2-->
+    <div :class="['thin:false', 'border']">这是第二种----2.2</div>
+    <!--    这是第二种 2.3-->
+    <div :class="[flag?'thin':'', 'border']">这是第二种----2.3</div>
+    <!--    这是第二种 2.4-->
+    <div :class="[{thin:true}, 'border']">这是第二种----2.4</div>
+
+    <!--    这是第三种 3.1-->
+    <div :class="{thin: true, border: true}">这是第三种----3.1</div>
+    <!--    这是第三种 3.2-->
+    <div :class="classObj">这是第三种----3.2</div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            classObj: {thin: true, border: true}
+        }
+    })
+</script>
+</body>
+</html>
